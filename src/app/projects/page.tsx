@@ -150,7 +150,14 @@ export default function ProjectsPage() {
   const [selectedProject, setSelectedProject] = useState<number>(0);
 
   const selectProject = (key: number) => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setSelectedProject(key);
+    setTimeout(() => {
+      const projectInfoElement = document.getElementById("projectInfo");
+      if (projectInfoElement) {
+        projectInfoElement.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }, 100);
   };
 
   const projectListVariants = {
@@ -159,12 +166,12 @@ export default function ProjectsPage() {
   };
 
   return (
-    <PageWrapper className="md:p-28 max-h-screen flex flex-col">
+    <PageWrapper id="top" className="md:p-28 md:max-h-screen flex flex-col">
       <div className="w-full px-6">
         <motion.div
           animate={{ scale: [0, 1, 0.5, 1] }}
           transition={{ times: [0, 0.1, 0.9, 1], type: "spring" }}
-          onClick={() => router.back()}
+          onClick={() => router.push("/")}
           className="flex w-fit items-center gap-2 text-white/80 hover:text-white cursor-pointer group pt-6 md:pt-0">
           <BiArrowBack size={30} className=" group-hover:animate-bounce" />
           <p>Home</p>
@@ -172,9 +179,10 @@ export default function ProjectsPage() {
       </div>
       <div className="grid md:grid-cols-2 grid-cols-1 grid-rows-1 flex-grow overflow-hidden">
         <motion.div
+          id="projectInfo"
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="text-white p-6 space-y-2 overflow-y-auto custom-scrollbar">
+          className="text-white p-6 space-y-2 overflow-y-auto custom-scrollbar max-h-[30rem]">
           {!!projects[selectedProject].href ? (
             <Link
               href={projects[selectedProject].href}

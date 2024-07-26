@@ -28,14 +28,18 @@ const socials = [
 
 export default function Home() {
   return (
-    <PageWrapper>
-      <div className="hidden md:inline-block">
-        <CoolBlob bottom={0} right={0} />
-      </div>
-      <div className="md:hidden inline-block">
-        <CoolBlob bottom={0} right={0} width={150} height={150} />
-      </div>
-      <div className="flex items-center justify-center h-screen bg-black">
+    <PageWrapper className="max-h-screen">
+      <CoolBlob bottom={0} right={0} className="hidden md:absolute" />
+
+      <CoolBlob
+        bottom={0}
+        right={0}
+        width={150}
+        height={150}
+        className="md:hidden absolute"
+      />
+
+      <div className="flex items-center justify-center h-screen bg-black ">
         <div className="text-white max-w-xl p-6">
           <main className="space-y-6">
             <div className="space-y-2">

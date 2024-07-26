@@ -9,11 +9,13 @@ export default function CoolBlob({
   bottom,
   left,
   right,
+  className,
   width = 300,
   height = 300,
 }: {
   width?: number;
   height?: number;
+  className?: string;
   top?: number;
   bottom?: number;
   left?: number;
@@ -27,7 +29,8 @@ export default function CoolBlob({
         bottom,
         left,
         right,
-      }}>
+      }}
+      className={className}>
       <p className="md:text-xs text-[8px] text-white/60 text-end px-2">
         Made with ShaderGradient by Ruucm
       </p>
