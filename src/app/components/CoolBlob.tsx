@@ -31,9 +31,6 @@ export default function CoolBlob({
         right,
       }}
       className={className}>
-      <p className="md:text-xs text-[8px] text-white/60 text-end px-2">
-        Made with ShaderGradient by Ruucm
-      </p>
       <ShaderGradientCanvas
         importedFiber={{ ...fiber, ...drei, ...reactSpring }}
         style={{
@@ -50,6 +47,9 @@ export default function CoolBlob({
           // animate="off"
         />
       </ShaderGradientCanvas>
+      <p className="md:text-xs text-[8px] text-white/60 text-end px-2 py-1">
+        Made with ShaderGradient by Ruucm
+      </p>
       <div className="w-[300px] h-[300px]  absolute bottom-0 right-0" />
     </div>
   );

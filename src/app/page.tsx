@@ -29,14 +29,14 @@ const socials = [
 export default function Home() {
   return (
     <PageWrapper className="max-h-screen">
-      <CoolBlob bottom={0} right={0} className="hidden md:absolute" />
+      <CoolBlob bottom={0} right={0} className="hidden md:block" />
 
       <CoolBlob
         bottom={0}
         right={0}
         width={150}
         height={150}
-        className="md:hidden absolute"
+        className="md:hidden "
       />
 
       <div className="flex items-center justify-center h-screen bg-black ">

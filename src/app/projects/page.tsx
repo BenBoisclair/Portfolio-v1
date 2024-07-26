@@ -31,7 +31,9 @@ const TechnologyTooltip = ({
     <TooltipProvider key={text}>
       <Tooltip>
         <TooltipTrigger>{icon}</TooltipTrigger>
-        <TooltipContent side="bottom" className="text-lg font-bold">
+        <TooltipContent
+          side="bottom"
+          className="text-lg font-bold bg-black rounded-3xl">
           {text}
         </TooltipContent>
       </Tooltip>
@@ -169,12 +171,13 @@ export default function ProjectsPage() {
     <PageWrapper id="top" className="md:p-28 md:max-h-screen flex flex-col">
       <div className="w-full px-6">
         <motion.div
-          animate={{ scale: [0, 1, 0.5, 1] }}
-          transition={{ times: [0, 0.1, 0.9, 1], type: "spring" }}
+          // animate={{ scale: [0, 1, 0.5, 1] }}
+          // transition={{ times: [0, 0.1, 0.9, 1], type: "spring" }}
           onClick={() => router.push("/")}
           className="flex w-fit items-center gap-2 text-white/80 hover:text-white cursor-pointer group pt-6 md:pt-0">
           <BiArrowBack size={30} className=" group-hover:animate-bounce" />
           <p>Home</p>
+          <p className="text-white">| Projects</p>
         </motion.div>
       </div>
       <div className="grid md:grid-cols-2 grid-cols-1 grid-rows-1 flex-grow overflow-hidden">
@@ -182,7 +185,7 @@ export default function ProjectsPage() {
           id="projectInfo"
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="text-white p-6 space-y-2 overflow-y-auto custom-scrollbar max-h-[30rem]">
+          className="text-white p-6 space-y-2 overflow-y-auto custom-scrollbar max-h-[30rem] md:max-h-full">
           {!!projects[selectedProject].href ? (
             <Link
               href={projects[selectedProject].href}
@@ -193,7 +196,7 @@ export default function ProjectsPage() {
               {projects[selectedProject].name}
 
               <MdOutlineArrowOutward
-                size={60}
+                size={55}
                 className="group-hover:animate-bounce w-10 md:w-[60px]"
               />
             </Link>
@@ -217,20 +220,20 @@ export default function ProjectsPage() {
               <Link
                 href={projects[selectedProject].company?.href}
                 target="_blank"
-                className="text-white/80 hover:text-white">
+                className="text-white/80 hover:text-white md:text-2xl text-xl">
                 {projects[selectedProject].company?.name}
               </Link>
             ) : (
-              <p className="text-white/80 hover:text-white">
+              <p className="text-white/80 hover:text-white md:text-2xl text-xl">
                 {projects[selectedProject].company?.name}
               </p>
             )}
 
-            <p className="text-white/80 mt-2 md:mt-0">
+            <p className="text-white/80 mt-2 md:mt-0 md:text-2xl text-xl">
               {projects[selectedProject].date}
             </p>
           </div>
-          <p className=" whitespace-pre-wrap">
+          <p className=" whitespace-pre-wrap md:text-2xl text-xl">
             {projects[selectedProject].description}
           </p>
           <div className="flex gap-2">
@@ -238,6 +241,13 @@ export default function ProjectsPage() {
               <div key={key * 2}>{tech}</div>
             ))}
           </div>
+          <Image
+            src={projects[selectedProject].imagePath}
+            alt={"Project Image"}
+            width={500}
+            height={200}
+            className={cn(`rounded-sm mt-20 border-2`)}
+          />
         </motion.div>
         <motion.div
           variants={projectListVariants}
