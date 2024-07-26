@@ -19,6 +19,8 @@ import { TbBrandFramerMotion } from "react-icons/tb";
 import { PiFramerLogo } from "react-icons/pi";
 import Link from "next/link";
 import { FiFigma } from "react-icons/fi";
+import { LuChevronsRight } from "react-icons/lu";
+import { IoIosArrowBack } from "react-icons/io";
 
 const TechnologyTooltip = ({
   text,
@@ -109,7 +111,7 @@ const projects: ProjectTypes[] = [
       href: "https://www.thehominians.com/",
       name: "@The Hominians Limited Co.",
     },
-    href: "Taste-Map.com",
+    href: "https://www.Taste-Map.com",
     details:
       "Explore true market tourism in Thailand with the help of TasteMap.",
     description: `TasteMap is a platform for market tourism. It aims to help tourists explore markets and make purchase decisions by providing them with an easy to use interface and features such as reviews. \n\nAs CTO of TasteMap, I developed the TasteMap website, provided technical solutions, and analyzed data to drive The Hominian's product team.`,
@@ -122,7 +124,7 @@ const projects: ProjectTypes[] = [
     company: {
       name: "@Riva",
     },
-    href: "www.chumnow.com",
+    href: "https://www.chumnow.com",
     date: "2023",
     details:
       "Platform for university students to explore discounts on their favourite brands.",
@@ -132,7 +134,7 @@ const projects: ProjectTypes[] = [
   },
   {
     name: "Portfolio/v1",
-
+    // href: { },
     date: "2024",
     details: "The website you're currently on.",
     description:
@@ -163,41 +165,42 @@ export default function ProjectsPage() {
   };
 
   const projectListVariants = {
-    hidden: { y: "100%" },
-    show: { y: "0%" },
+    hidden: { x: "100%" },
+    show: { x: "0%" },
   };
 
   return (
     <PageWrapper id="top" className="md:p-28 md:max-h-screen flex flex-col">
-      <div className="w-full px-6">
-        <motion.div
-          // animate={{ scale: [0, 1, 0.5, 1] }}
-          // transition={{ times: [0, 0.1, 0.9, 1], type: "spring" }}
+      <nav className="w-full py-4 px-4 flex items-center gap-4 sticky top-0 bg-black z-20">
+        <div
           onClick={() => router.push("/")}
-          className="flex w-fit items-center gap-2 text-white/80 hover:text-white cursor-pointer group pt-6 md:pt-0">
-          <BiArrowBack size={30} className=" group-hover:animate-bounce" />
+          className="flex w-fit hover:-translate-y-2 items-center gap-1 text-white/80 hover:text-white cursor-pointer group md:pt-0">
+          <IoIosArrowBack size={30} />
           <p>Home</p>
-          <p className="text-white">| Projects</p>
-        </motion.div>
-      </div>
-      <div className="grid md:grid-cols-2 grid-cols-1 grid-rows-1 flex-grow overflow-hidden">
+        </div>
+        {/* <p className="text-white flex items-center ">
+          <IoIosArrowBack />
+          Projects
+        </p> */}
+      </nav>
+      <div className="md:grid md:grid-cols-2 grid-cols-1 md:grid-rows-1 grid-rows-2 flex flex-col">
         <motion.div
           id="projectInfo"
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="text-white p-6 space-y-2 overflow-y-auto custom-scrollbar max-h-[30rem] md:max-h-full">
+          className="text-white p-6 space-y-2 overflow-y-auto custom-scrollbar max-h-full md:max-h-full">
           {!!projects[selectedProject].href ? (
             <Link
               href={projects[selectedProject].href}
               className={cn(
-                `md:text-5xl text-4xl font-bold flex items-center group cursor-pointer`,
+                `md:text-5xl text-4xl font-bold flex group cursor-pointer`,
                 { "cursor-default": !projects[selectedProject].href }
               )}>
               {projects[selectedProject].name}
 
               <MdOutlineArrowOutward
-                size={55}
-                className="group-hover:animate-bounce w-10 md:w-[60px]"
+                size={40}
+                className="group-hover:-translate-y-2 w-8"
               />
             </Link>
           ) : (
@@ -254,7 +257,7 @@ export default function ProjectsPage() {
           initial="hidden"
           animate="show"
           transition={{ duration: 0.5, type: "tween" }}
-          className="text-white p-6 h-full overflow-scroll no-scrollbar flex flex-col gap-4">
+          className="text-white p-6 overflow-scroll no-scrollbar flex flex-col gap-4 order-first md:order-last">
           {projects.map((project, key) => {
             return (
               <ProjectCard
