@@ -257,7 +257,7 @@ export default function ProjectsPage() {
           initial="hidden"
           animate="show"
           transition={{ duration: 0.5, type: "tween" }}
-          className="text-white p-6 overflow-scroll no-scrollbar flex flex-col gap-4 order-first md:order-last">
+          className="text-white p-12 overflow-scroll no-scrollbar flex flex-col gap-4 order-first md:order-last">
           {projects.map((project, key) => {
             return (
               <ProjectCard
@@ -304,7 +304,7 @@ function ProjectCard({
       <Image
         src={project.imagePath}
         alt={"Project Image"}
-        width={150}
+        width={100}
         height={100}
         className={cn(
           `rounded-sm border-2 border-white/50 h-fit group-hover:border-black`,
@@ -316,7 +316,7 @@ function ProjectCard({
       <div>
         <div>
           <p
-            className={cn(`font-bold group-hover:text-black`, {
+            className={cn(`font-bold group-hover:text-black text-xl`, {
               "text-black": id === selectedProject,
             })}>
             {project.name}

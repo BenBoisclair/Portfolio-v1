@@ -4,6 +4,7 @@ import Link from "next/link";
 import CoolBlob from "./components/CoolBlob";
 import { motion } from "framer-motion";
 import PageWrapper from "./components/PageWrapper";
+import { MdOutlineNavigateNext } from "react-icons/md";
 
 const content = {
   name: "Benedict",
@@ -81,13 +82,13 @@ export default function Home() {
 
 function NavLink({ children }: { children: string }) {
   return (
-    <>
-      <Link
-        id={children.toLowerCase()}
-        href={children.toLowerCase()}
-        className="block text-gray-200 hover:text-black hover:bg-white/80 hover:font-bold transition ease-in-out cursor-pointer text-xl md:text-2xl">
-        {children}
-      </Link>
-    </>
+    <Link
+      id={children.toLowerCase()}
+      href={children.toLowerCase()}
+      className="flex items-center text-gray-200 hover:text-black hover:bg-white/80 hover:font-bold transition ease-in-out cursor-pointer text-xl md:text-2xl">
+      <MdOutlineNavigateNext size={30} />
+
+      {children}
+    </Link>
   );
 }
