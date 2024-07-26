@@ -110,8 +110,7 @@ const projects: ProjectTypes[] = [
     href: "Taste-Map.com",
     details:
       "Explore true market tourism in Thailand with the help of TasteMap.",
-    description:
-      "Occaecat tempor minim culpa ad quis incididunt do reprehenderit veniam aute fugiat. Adipisicing cillum commodo enim dolor eu do proident tempor ea occaecat ullamco. Sit nostrud sit pariatur. Voluptate suntquis culpa aliqua elit sint reprehenderit aliqua officia.",
+    description: `TasteMap is a platform for market tourism. It aims to help tourists explore markets and make purchase decisions by providing them with an easy to use interface and features such as reviews. \n\nAs CTO of TasteMap, I developed the TasteMap website, provided technical solutions, and analyzed data to drive The Hominian's product team.`,
     imagePath: "/TasteMap.png",
     date: "2021",
     technology: [technology.Nextjs, technology.Typescript, technology.Supabase],
@@ -124,9 +123,8 @@ const projects: ProjectTypes[] = [
     href: "www.chumnow.com",
     date: "2023",
     details:
-      "Occaecat tempor minim culpa ad quis incididunt do reprehenderit veniam aute fugiat.",
-    description:
-      "Occaecat tempor minim culpa ad quis incididunt do reprehenderit veniam aute fugiat. Adipisicing cillum commodo enim dolor eu do proident tempor ea occaecat ullamco. Sit nostrud sit pariatur. Voluptate suntquis culpa aliqua elit sint reprehenderit aliqua officia.",
+      "Platform for university students to explore discounts on their favourite brands.",
+    description: `Chum is a platform to connect university students with exclusive discounts from their favorite brands across Asia. As the CTO, I contributed to building a user-friendly interface that allows students to easily discover and use a wide range of discounts. \n\nThe platform also provides businesses with a targeted marketing channel to reach the valuable student demographic. \n\nMy role involved implementing features such as personalized discount recommendations, seamless redemption processes, and integration with various brand partners.`,
     imagePath: "/Chum.png",
     technology: [technology.Nextjs, technology.Typescript, technology.Supabase],
   },
@@ -134,10 +132,9 @@ const projects: ProjectTypes[] = [
     name: "Portfolio/v1",
 
     date: "2024",
-    details:
-      "Occaecat tempor minim culpa ad quis incididunt do reprehenderit veniam aute fugiat.",
+    details: "The website you're currently on.",
     description:
-      "Occaecat tempor minim culpa ad quis incididunt do reprehenderit veniam aute fugiat. Adipisicing cillum commodo enim dolor eu do proident tempor ea occaecat ullamco. Sit nostrud sit pariatur. Voluptate suntquis culpa aliqua elit sint reprehenderit aliqua officia.",
+      "This is the portfolio website you're currently on. The website was designed in Figma and uses Framer Motion to create the animations you see.",
     imagePath: "/PortfolioV1.png",
     technology: [
       technology.Nextjs,
@@ -162,7 +159,7 @@ export default function ProjectsPage() {
   };
 
   return (
-    <PageWrapper className="md:p-28 max-h-screen">
+    <PageWrapper className="md:p-28 max-h-screen flex flex-col">
       <div className="w-full px-6">
         <motion.div
           animate={{ scale: [0, 1, 0.5, 1] }}
@@ -173,11 +170,11 @@ export default function ProjectsPage() {
           <p>Home</p>
         </motion.div>
       </div>
-      <div className="grid md:grid-cols-2 grid-cols-1 grid-rows-1">
+      <div className="grid md:grid-cols-2 grid-cols-1 grid-rows-1 flex-grow overflow-hidden">
         <motion.div
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="text-white p-6 h-full space-y-2">
+          className="text-white p-6 space-y-2 overflow-y-auto custom-scrollbar">
           {!!projects[selectedProject].href ? (
             <Link
               href={projects[selectedProject].href}
@@ -225,7 +222,9 @@ export default function ProjectsPage() {
               {projects[selectedProject].date}
             </p>
           </div>
-          <p>{projects[selectedProject].description}</p>
+          <p className=" whitespace-pre-wrap">
+            {projects[selectedProject].description}
+          </p>
           <div className="flex gap-2">
             {projects[selectedProject].technology.map((tech, key) => (
               <div key={key * 2}>{tech}</div>

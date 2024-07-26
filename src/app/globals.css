@@ -12,3 +12,29 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.custom-scrollbar {
+  /* Ensure the scrollbar always appears */
+  overflow-y: scroll;
+}
+
+/* Styles for Webkit browsers (Chrome, Safari, newer versions of Edge) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 15px; /* width of the entire scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent; /* gray background */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #fff; /* black scrollbar handle */
+  border-radius: 6px; /* roundness of the scrollbar handle */
+  border: 3px solid #f0f0f0; /* creates padding around the scrollbar handle */
+}
+
+/* Styles for Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #fff transparent; /* thumb and track color */
+}

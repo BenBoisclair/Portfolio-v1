@@ -13,11 +13,11 @@ const content = {
     "Hey, I'm Ben. I build and maintain web applications for startups. I also occasionally do UX UI and design systems.",
 };
 
-const navigationItems = ["Projects", "About"];
+const navigationItems = ["Projects"];
 
 const socials = [
   {
-    href: "https://github.com",
+    href: "https://github.com/BenBoisclair",
     icon: <FaGithub size={32} />,
   },
   {
