@@ -8,7 +8,6 @@ import { ShaderGradient, ShaderGradientCanvas } from "shadergradient";
 
 export default function CoolBlob({
   top,
-
   bottom,
   left,
   right,
@@ -91,7 +90,7 @@ export default function CoolBlob({
       )}
       <div
         onClick={() => router.push("/blob")}
-        className="w-[300px] h-[300px]  absolute bottom-0 right-0 cursor-pointer"
+        className="md:w-[300px] md:h-[300px] h-[170px] w-[170px]  absolute bottom-0 right-0 cursor-pointer"
       />
     </div>
   );

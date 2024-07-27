@@ -4,7 +4,7 @@ import { cn } from "@/utils/cn";
 import Image from "next/image";
 import { ReactNode, useState } from "react";
 import { RiNextjsFill, RiSupabaseFill } from "react-icons/ri";
-import PageWrapper from "../components/PageWrapper";
+import PageWrapper from "@/components/PageWrapper";
 import { BiArrowBack, BiChevronLeft, BiLogoTypescript } from "react-icons/bi";
 import { useRouter } from "next/navigation";
 import {
@@ -12,7 +12,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "../components/Tooltip";
+} from "@/components/Tooltip";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { motion } from "framer-motion";
 import { TbBrandFramerMotion } from "react-icons/tb";
@@ -239,10 +239,13 @@ export default function ProjectsPage() {
           <p className=" whitespace-pre-wrap md:text-2xl text-xl">
             {projects[selectedProject].description}
           </p>
-          <div className="flex gap-2">
-            {projects[selectedProject].technology.map((tech, key) => (
-              <div key={key * 2}>{tech}</div>
-            ))}
+          <div className="py-5">
+            <h4 className=" font-semibolda ">Built With</h4>
+            <div className="flex gap-2">
+              {projects[selectedProject].technology.map((tech, key) => (
+                <div key={key * 2}>{tech}</div>
+              ))}
+            </div>
           </div>
           <Image
             src={projects[selectedProject].imagePath}
@@ -257,7 +260,7 @@ export default function ProjectsPage() {
           initial="hidden"
           animate="show"
           transition={{ duration: 0.5, type: "tween" }}
-          className="text-white p-12 overflow-scroll no-scrollbar flex flex-col gap-4 order-first md:order-last">
+          className="text-white md:p-12 p-6 overflow-scroll no-scrollbar flex flex-col gap-4 order-first md:order-last">
           {projects.map((project, key) => {
             return (
               <ProjectCard

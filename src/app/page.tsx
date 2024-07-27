@@ -1,17 +1,17 @@
 "use client";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
-import CoolBlob from "./components/CoolBlob";
+import CoolBlob from "@/components/CoolBlob";
 import { motion } from "framer-motion";
-import PageWrapper from "./components/PageWrapper";
+import PageWrapper from "@/components/PageWrapper";
 import { MdOutlineNavigateNext } from "react-icons/md";
+import Particles from "@/components/magicui/particles";
 
 const content = {
   name: "Benedict",
   lastname: "Boisclair",
-  role: "Fullstack Web Developer",
-  about:
-    "Hey, I'm Ben. I build and maintain web applications for startups. I also occasionally do UX UI and design systems.",
+  role: "Frontend Web Developer",
+  about: "Hey, I'm Ben. I build and maintain web applications for startups.",
 };
 
 const navigationItems = ["Projects"];
@@ -40,7 +40,7 @@ export default function Home() {
         className="md:hidden "
       />
 
-      <div className="flex items-center justify-center h-screen bg-black ">
+      <div className="flex items-center justify-center h-screen bg-transparent ">
         <div className="text-white max-w-xl p-6">
           <main className="space-y-6">
             <div className="space-y-2">
@@ -76,6 +76,13 @@ export default function Home() {
           </main>
         </div>
       </div>
+      <Particles
+        className="absolute inset-0 -z-10"
+        quantity={100}
+        ease={80}
+        color={"#fff"}
+        refresh
+      />
     </PageWrapper>
   );
 }
