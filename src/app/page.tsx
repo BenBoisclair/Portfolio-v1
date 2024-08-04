@@ -6,17 +6,11 @@ import { motion } from "framer-motion";
 import PageWrapper from "@/components/PageWrapper";
 import { MdOutlineNavigateNext } from "react-icons/md";
 import Particles from "@/components/magicui/particles";
+import { content } from "@/data/home";
 
-const content = {
-  name: "Benedict",
-  lastname: "Boisclair",
-  role: "Frontend Web Developer",
-  about: "Hey, I'm Ben. I build and maintain web applications for startups.",
-};
+export const navigationItems = ["Projects"];
 
-const navigationItems = ["Projects"];
-
-const socials = [
+export const socials = [
   {
     href: "https://github.com/BenBoisclair",
     icon: <FaGithub size={32} />,
@@ -68,7 +62,7 @@ export default function Home() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-gray-400">
+                  className="hover:text-gray-700">
                   {social.icon}
                 </Link>
               ))}
