@@ -8,9 +8,9 @@ import { MdOutlineNavigateNext } from "react-icons/md";
 import Particles from "@/components/magicui/particles";
 import { content } from "@/data/home";
 
-export const navigationItems = ["Projects"];
+const navigationItems = ["Projects"];
 
-export const socials = [
+const socials = [
   {
     href: "https://github.com/BenBoisclair",
     icon: <FaGithub size={32} />,
